@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var flag=0;
+        var username = ["Rohit", "Akshay", "Neha","Radha"];
+        console.log(typeof username)
+        var name=prompt("Enter a name=");
+        for (key in username) {
+            console.log(username[key])
+            if(username[key] == name){
+                flag=1;
+              break;
+            }
+        }
+        if(flag==1){
+            alert("User is already exist");
+        }
+        else{
+            alert("your registartion is succesful")
+        }
+    </script>
+</body>
+</html>

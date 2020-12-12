@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Select season:
+    <select name="season" id="season" onchange="suggestuser()">
+        <option value="summer">summer</option>
+        <option value="winter">winter</option>
+        <option value="rainy">rainy</option>
+        <option value="windy">windy</option>
+    </select>
+    <div id="mydiv"></div>
+
+    <script>
+        function suggestuser(){
+            var season = document.getElementById("season").value
+            if(season == "summer"){
+                document.getElementById("mydiv").innerHTML="Eat icecream And Go for swimming";
+            }
+            if(season == "winter"){
+                document.getElementById("mydiv").innerHTML="drink hot soup and sleep";
+            }
+            if(season == "rainy"){
+                document.getElementById("mydiv").innerHTML="Drink Tea and samosa anjoy rain";
+            }
+            if(season == "windy"){
+                document.getElementById("mydiv").innerHTML="Enjoy cycling and kite flying";
+            }
+        }
+    </script>
+</body>
+</html>

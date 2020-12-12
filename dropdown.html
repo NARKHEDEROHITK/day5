@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Select season:
+    <select name="season" id="season" onchange="suggestuser()">
+        <option value="tv">TV</option>
+        <option value="mobile">mobile</option>
+        <option value="laptop">laptop</option>
+    </select>
+    <div id="mydiv" style="background: yellow;"></div>
+
+
+    <script>
+        function suggestuser() {
+            var season = document.getElementById("season").value
+            if (season == "tv") {
+                document.getElementById("mydiv").innerHTML = `<h3>Welcome to our TV shop</h3>
+                                                                    <ul>
+                                                                        <li>LG</li>
+                                                                        <li>Samsung</li>
+                                                                        <li>Onida</li>
+                                                                    </ul > `;
+            }
+            if (season == "mobile") {
+                document.getElementById("mydiv").innerHTML = `<h3>Welcome to our Mobile shop</h3>
+                                                                    <ul>
+                                                                        <li>Vivo</li>
+                                                                        <li>Samsung</li>
+                                                                        <li>OPPO</li>
+                                                                        <li>Motorola</li>
+                                                                    </ul > `;
+            }
+            if (season == "laptop") {
+                document.getElementById("mydiv").innerHTML = `<h3>Welcome to our Laptop shop</h3>
+                                                                    <ul>
+                                                                        <li>Del</li>
+                                                                        <li>Apple</li>
+                                                                        <li>HP</li>
+                                                                        <li>Asus</li>
+                                                                    </ul > `;
+            }
+           
+        }
+    </script>
+</body>
+
+</html>
