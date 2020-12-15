@@ -7,12 +7,12 @@
 </head>
 <body>
     <script>
-        var flag=0;
+       flag=0
         var username = ["Rohit", "Akshay", "Neha","Radha"];
-        console.log(typeof username)
+        // console.log(typeof username)
         var name=prompt("Enter a name=");
         for (key in username) {
-            console.log(username[key])
+            
             if(username[key] == name){
                 flag=1;
               break;
@@ -20,10 +20,21 @@
         }
         if(flag==1){
             alert("User is already exist");
+        }else{
+            alert("Register succefully")
         }
-        else{
-            alert("your registartion is succesful")
-        }
+
+            // username.forEach((val,index,username)=>{
+            //     if(val==name){
+            //         flag=true;
+            //         alert("User name is exist");
+            //         break;
+            //     }
+                
+            // })
+            // if(!flag){
+            //     alert("Your registerd succesfully")
+            // }
     </script>
 </body>
 </html>

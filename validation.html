@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+</head>
+
+<body>
+    <form action="Succes.html" name="myform">
+        Username: <input type="text" name="uname" id="uname"><br><br>
+
+        password: <input type="password" name="pass" id="pass"><br><br>
+
+        Gender: <input type="radio" name="gen" id="gen1">Male <input type="radio" name="gen" id="gen2">Female <br><br>
+        <input type="button" value="Submit" onclick="validateform()">
+    </form>
+
+    <script>
+        function validateform() {
+            if (document.getElementById('uname').value == "") {
+                alert("Enter a Name");
+                document.myform.uname.focus();
+                if (document.getElementById('uname').value.length > 5) {
+                    alert("Enter a name more than 5 chracter")
+                }
+            }
+            else if (document.getElementById('pass').value == "") {
+                alert("Enter a Password");
+                document.myform.pass.focus();
+            } else if (document.getElementById('gen1').checked == "" && document.getElementById('gen2').checked == "") {
+                alert("Enter a Gender");
+                document.myform.gen[0].checked = true;
+            }
+            else {
+                alert("your registerd");
+                document.myform.submit();
+            }
+        }
+    </script>
+</body>
+
+</html>
