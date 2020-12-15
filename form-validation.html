@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <style>
+        .Name {
+            width: 740px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .label-width {
+            font-size: 22px;
+            width: 300px;
+            text-align: right;
+        }
+
+        .input-box {
+            width: 400px;
+        }
+
+        input {
+            width: 100%;
+            height: 30px;
+            padding: 0 20px;
+        }
+
+        .form-parent {
+            margin: 40px auto;
+
+        }
+
+        #btn {
+            width: 150px;
+            height: 30px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="success.html" name="myform">
+        <div class="form-parent">
+            <div class="Name">
+                <div class="label-width">Name <sup style="color: red;">*</sup></div>
+                <div class="input-box">
+                    <input type="text" name="name" id="username">
+                    <div id="small"></div>
+                </div>
+            </div>
+            <div class="Name">
+                <div class="label-width">Password <sup style="color: red;">*</sup></div>
+                <div class="input-box">
+                    <input type="password" name="pass" id="pass">
+                    <div id="small-pass"></div>
+                </div>
+            </div>
+            <div class="Name">
+                <div class="label-width">Phone <sup style="color: red;">*</sup></div>
+                <div class="input-box">
+                    <input type="text" name="phone" id="phone">
+                    <div id="small-phone"></div>
+                </div>
+            </div>
+            <div class="Name">
+                <div class="label-width">email</div>
+                <div class="input-box">
+                    <input type="email" name="email" id="email">
+                    <div id="small-email"></div>
+                </div>
+            </div>
+            <div class="Name">
+                <div class="label-width">City</div>
+                <div class="input-box">
+                    <input type="text" name="city" id="city">
+                </div>
+            </div>
+            <div class="Name">
+                <div class="label-width"></div>
+                <div class="input-box">
+                    <input type="button" value="Submit" id="btn" onclick="validate()">
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <script>
+        function validate() {
+            usernames = ["Rohit", "Radha", "Deepak", "Akshay", "Lily"];
+            var username = document.getElementById("username").value;
+            var pass = document.getElementById("pass").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+
+            // Username valiadtion
+            if (username == "") {
+
+                // document.getElementById("small-name").innerHTML = " Enter a strong password";
+                // let ele = document.getElementById("small-name");
+                // ele.innerHTML  = "Please enter  a username";
+                document.getElementById("small").innerHTML = "Please enter a username";
+                document.getElementById("small").style.color = "red";
+            }
+            else if (username.length <= 3 || username.length >= 15) {
+                console.log(username)
+                document.getElementById("small").innerHTML = "Maximum length is beetween 5-15";
+                document.getElementById("small").style.color = "red";
+            }
+            else if (true) {
+                var flag = false;
+                for (key in usernames) {
+                    if (usernames[key] == username) {
+                        flag = true;
+                        break;
+                    }
+
+                }
+                if (flag ) {
+                    document.getElementById("small").innerHTML = "Username is already exist";
+                    document.getElementById("small").style.color = "red";
+                }
+                else {
+                    document.getElementById("small").innerHTML = "";
+                }
+            }
+            else {
+                document.getElementById("small").innerHTML = "";
+            }
+
+
+
+
+
+
+
+            // password validation
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+            if (pass.match(passw)) {
+                document.getElementById("small-pass").innerHTML = "";
+
+            }
+            else {
+                document.getElementById("small-pass").innerHTML = "Please Enter a strong password";
+                document.getElementById("small-pass").style.color = "red";
+            }
+
+            // phone number validation
+            var phoneno = /^\d{10}$/;
+            if (phone.match(phoneno)) {
+                document.getElementById("small-phone").innerHTML = "";
+
+            }
+            else {
+                document.getElementById("small-phone").innerHTML = "Please Enter a valid 10 digit mobile number";
+                document.getElementById("small-phone").style.color = "red";
+            }
+
+            // email validation
+            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (email.match(mailformat)) {
+                document.getElementById("small-email").innerHTML = "";
+
+            }
+            else {
+                document.getElementById("small-email").innerHTML = "Please Enter a valid Email Address eg. rohit@123Gmail.com";
+                document.getElementById("small-email").style.color = "red";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

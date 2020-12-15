@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+            width: 500px;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 80px;
+        }
+
+        span {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="heading" style="font-size: 50px;">Player 1</div>
+    <div class="grid-container">
+        <div id="1" onclick="show(this)"><span>1</span></div>
+        <div id="2" onclick="show(this)"><span>2</span></div>
+        <div id="3" onclick="show(this)"><span>3</span></div>
+        <div id="4" onclick="show(this)"><span>4</span></div>
+        <div id="5" onclick="show(this)"><span>5</span></div>
+        <div id="6" onclick="show(this)"><span>6</span></div>
+        <div id="7" onclick="show(this)"><span>7</span></div>
+        <div id="8" onclick="show(this)"><span>8</span></div>
+        <div id="9" onclick="show(this)"><span>9</span></div>
+    </div>
+
+    <script>
+        var player1=prompt("Enter a Player 1 Name")
+        var player2=prompt("Enter a Player 2 Name")
+        document.getElementById("heading").innerHTML = player1+" chance";
+        var a = 0;
+        function show(ele) {
+            if (a % 2 == 0) {
+                document.getElementById("heading").innerHTML = player2+" chance";
+                ele.innerHTML = "O";
+
+            } else {
+                document.getElementById("heading").innerHTML = player1+" chance";
+                ele.innerHTML = "X";
+            }
+            a = a + 1;
+
+            if (a <= 8) {
+                if (document.getElementById("1").innerHTML == document.getElementById("2").innerHTML && document.getElementById("2").innerHTML == document.getElementById("3").innerHTML ||
+                    document.getElementById("4").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("6").innerHTML ||
+                    document.getElementById("7").innerHTML == document.getElementById("8").innerHTML && document.getElementById("8").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("1").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("3").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("7").innerHTML ||
+                    document.getElementById("3").innerHTML == document.getElementById("6").innerHTML && document.getElementById("6").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("2").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("8").innerHTML ||
+                    document.getElementById("1").innerHTML == document.getElementById("4").innerHTML && document.getElementById("4").innerHTML == document.getElementById("7").innerHTML) {
+                    if (a % 2 == 0) {
+                        setTimeout(function () { alert(" congaratulation "+player2+" Win") }, 500);
+                    }
+                    else {
+                        setTimeout(function () { alert("congaratulation "+player1+" Win") }, 500);
+                    }
+
+
+                }
+            }
+
+            if (a == 9) {
+                if (document.getElementById("1").innerHTML == document.getElementById("2").innerHTML && document.getElementById("2").innerHTML == document.getElementById("3").innerHTML ||
+                    document.getElementById("4").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("6").innerHTML ||
+                    document.getElementById("7").innerHTML == document.getElementById("8").innerHTML && document.getElementById("8").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("1").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("3").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("7").innerHTML ||
+                    document.getElementById("3").innerHTML == document.getElementById("6").innerHTML && document.getElementById("6").innerHTML == document.getElementById("9").innerHTML ||
+                    document.getElementById("2").innerHTML == document.getElementById("5").innerHTML && document.getElementById("5").innerHTML == document.getElementById("8").innerHTML ||
+                    document.getElementById("1").innerHTML == document.getElementById("4").innerHTML && document.getElementById("4").innerHTML == document.getElementById("7").innerHTML) {
+                    if (a % 2 == 0) {
+                        setTimeout(function () { alert(" congaratulation "+player2+" Win") }, 500);
+                    }
+                    else {
+                        setTimeout(function () { alert(" congaratulation "+player1+" Win") }, 500);
+                    }
+
+                } else {
+                    setTimeout(function () { alert(" Game Draw") }, 500);
+                }
+            }
+
+        }
+    </script>
+</body>
+
+</html>
